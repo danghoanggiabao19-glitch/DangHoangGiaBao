@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Sản phẩm - ElectroShop</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* HEADER */
+        .header {
+            width: 100%;
+            background: #222;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .search-container input {
+            padding: 8px;
+            width: 250px;
+        }
+
+        .search-container button {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        .icons a {
+            color: white;
+            font-size: 22px;
+            margin-left: 10px;
+            text-decoration: none;
+        }
+
+        /* MENU */
+        .menu {
+            background: #444;
+            padding: 10px;
+        }
+
+        .menu ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+
+        .menu a:hover, .active {
+            background: #666;
+            border-radius: 5px;
+        }
+
+        /* DANH MỤC */
+        .category-section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .category-box {
+            width: 220px;
+            background: #f5f5f5;
+            display: inline-block;
+            margin: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .category-box:hover {
+            background: #e1e1e1;
+        }
+
+        .category-box img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        /* SẢN PHẨM CON */
+        .products {
+            padding: 20px;
+        }
+
+        #items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .product-item {
+            width: 230px;
+            background: #f5f5f5;
+            padding: 15px;
+            margin: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .product-item img {
+            width: 100%;
+            height: 165px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+        
+        /* CSS cho nút Thêm vào giỏ */
+        .add-to-cart {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background: #0056b3;
+        }
+/* --- CSS MỚI CHO NÚT VÀ CĂN CHỈNH --- */
+        .product-actions-inline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            gap: 5px; /* Khoảng cách giữa 2 nút */
+        }
+
+        .product-item .add-to-cart {
+            padding: 8px 5px; 
+            flex-grow: 1; /* Choán hết không gian có thể */
+            font-size: 14px;
+            margin-top: 0; 
+        }
+
+        .buy-now-btn-small {
+            display: inline-block;
+            background: #dc3545; /* Màu đỏ */
+            color: white;
+            border: none;
+            padding: 8px 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            flex-grow: 1;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .buy-now-btn-small:hover {
+            background: #c82333;
+        }
+        /* FOOTER */
+        .footer {
+            background: #222;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            text-align: left;
+        }
+        .footer div {
+            max-width: 300px;
+            padding: 10px;
+        }
+
+        .footer h3 {
+            margin-bottom: 15px;
+        }
+
+        .footer p {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">
+        <img src="logo.jpg" alt="ElectroShop Logo" width="80">
+    </div>
+
+    <div class="search-container">
+        <input type="text" placeholder="Tìm kiếm sản phẩm...">
+        <button>Tìm</button>
+    </div>
+
+    <div class="icons">
+        <a href="giỏ hàng.html">🛒</a>
+        <span id="cart-count">0</span> | 
+        <span id="cart-total">0₫</span>
+        <a href="dn.html">👤</a>
+    </div>
+</header>
+
+<nav class="menu">
+    <ul>
+        <li><a href="index.html">Trang chủ</a></li>
+        <li><a href="sanpham2.html" class="active">Sản phẩm</a></li>
+        <li><a href="km2.html">Khuyến mãi</a></li>
+        <li><a href="hotro2.html">Hỗ trợ khách hàng</a></li>
+    </ul>
+</nav>
+
+<section class="category-section">
+    <h2>Danh mục sản phẩm</h2>
+
+    <div class="category-box" data-target="phone">
+        <img src="iphone1.jpg">
+        <h3>Điện thoại</h3>
+    </div>
+
+    <div class="category-box" data-target="laptop">
+        <img src="laptop1.jpg">
+        <h3>Laptop</h3>
+    </div>
+
+    <div class="category-box" data-target="headphone">
+        <img src="airpods1.jpg">
+        <h3>Tai nghe</h3>
+    </div>
+
+    <div class="category-box" data-target="accessory">
+        <img src="phukien.jpg">
+        <h3>Phụ kiện</h3>
+    </div>
+</section>
+
+<section class="products">
+    <h2 id="product-title">Chọn danh mục để xem sản phẩm</h2>
+    <div id="items"></div>
+</section>
+
+<footer class="footer">
+    <div>
+        <h3>Liên hệ</h3>
+           <div class="logo">
+         <img src="logo.jpg" alt="ElectroShop Logo" width="80">
+         </div>
+        <p>Công ty Cổ phần ElectroShop</p>
+        <p>Uy tín chất lượng</p>
+        <p>Hotline: 0123 456 789</p>
+        <p><strong>Địa chỉ:</strong> 123 Nguyễn Trãi, phường Phú Thủy, TP.Phan Thiết</p>
+        <p><strong>Email:</strong> ĐHGBẢO@electroshop.vn</p>
+    </div>
+
+    <div>
+        <h3>Chính sách - Hướng dẫn</h3>
+        <p>Chính sách bán hàng</p>
+        <p>Chính sách đổi trả, bảo hành</p>
+        <p>Chính sách giao hàng, kiểm hàng</p>
+        <p>Chính sách bảo mật</p>
+        <p>Chính sách trả góp 0%</p>
+        <p>Chính sách hoàn tiền</p>
+        <p>Chính sách ưu đãi</p>
+        <p>Hướng dẫn khách hàng</p>
+        <p>Hướng dẫn mua hàng</p>
+        <p>Hướng dẫn sử dụng</p>
+    </div>
+
+    <div>
+        <h3>Kết nối với chúng tôi</h3>
+        <p>Facebook | TikTok | YouTube</p>
+        <p>Phương thức Thanh toán: Visa | MasterCard | PayPal</p>
+    </div>
+</footer>
+
+<script>
+const list = document.getElementById("items");
+const title = document.getElementById("product-title");
+function parsePrice(priceStr) {
+    return parseInt(priceStr.replace(/đ/g, '').replace(/\./g, ''));
+}
+function createSlug(name) {
+
+    return 'chitiet' + name.toLowerCase()
+        .replace(/đ/g, 'd')
+        .replace(/\s+/g, '')
+        .replace(/[^a-z0-9]/g, '')
+        .trim() + '.html';
+}
+const products = {
+    phone: [
+        {name:"iPhone 15 Pro Max", img:"iphone1.jpg", price:"31.990.000đ"},
+        {name:"Samsung Galaxy S23", img:"samsung.jpg", price:"22.990.000đ"},
+        {name:"Xiaomi 13", img:"Xiaomi 13.jpg", price:"14.990.000đ"},
+        {name:"Oppo A77s", img:"oppo.jpg", price:"7.990.000đ"}
+    ],
+    laptop: [
+        {name:"MacBook Pro 2023", img:"laptop1.jpg", price:"49.990.000đ"},
+        {name:"Dell XPS 13", img:"Dell XPS 13.jpg", price:"28.990.000đ"},
+        {name:"HP Spectre x360", img:"HP Spectre x360.jpg", price:"35.990.000đ"}
+    ],
+    headphone: [
+        {name:"AirPods Pro 2", img:"airpods1.jpg", price:"2.990.000đ"},
+        {name:"Sony WH-1000XM5", img:"tainghe2.jpg", price:"1.990.000đ"},
+        {name:"Bose QC45", img:"tainghe3.jpg", price:"1.990.000đ"},
+        {name:"Tai nghe dây nhét tai Type C Choetech OC-A011. ", img:"tainghe4.jpg", price:"150.000đ"},
+    ],
+    accessory: [
+        {name:"Sạc nhanh 30W", img:"sạc30w.jpg", price:"390.000đ"},
+        {name:"Cáp Type-C", img:"captypec.jpg", price:"120.000đ"},
+        {name:"Ốp lưng IPhone", img:"opiphone.jpg", price:"100.000đ"},
+        {name:"Ốp lưng Samsung", img:"opsamsung.jpg", price:"100.000đ"},
+        {name:"Ốp lưng Xiaomi", img:"opxiaomi.jpg", price:"100.000đ"},
+        {name:"Ốp lưng Oppo", img:"opoppo.jpg", price:"100.000đ"},
+        {name:"Các loại ốp lưng khác ", img:"oplung.jpg", price:"100.000đ"},
+        {name:"Pin sạc dự phòng Xiaomi", img:"sacduphong.jpg", price:"600.000đ"},
+        {name:"Bàn phím cơ có dây", img:"phimcoday.jpg", price:"990.000đ"},
+        {name:"Bàn phím cơ không dây", img:"phimkhongday.jpg", price:"1.990.000đ"},
+        {name:"Chuột có dây", img:"chuotday.jpg", price:"790.000đ"},
+    ]
+};
+// SỬA ĐỔI CHÍNH Ở ĐÂY: Thêm nút "MUA NGAY"
+document.querySelectorAll(".category-box").forEach(box => {
+    box.addEventListener("click", () => {
+        const type = box.dataset.target;
+        title.innerText = box.innerText;
+        
+        list.innerHTML = products[type].map(p => {
+            const detailSlug = createSlug(p.name); 
+            
+            return `
+                <div class="product-item">
+                    <img src="${p.img}">
+                    <h3>${p.name}</h3>
+                    <p>Giá: ${p.price}</p>
+                    
+                    <div class="product-actions-inline">
+                        <button 
+                            class="add-to-cart" 
+                            data-name="${p.name}" 
+                            data-price="${parsePrice(p.price)}" 
+                            data-image="${p.img}">
+                            Thêm vào giỏ
+                        </button>
+                        
+                        <a href="${detailSlug}" class="buy-now-btn-small">
+                            MUA NGAY
+                        </a>
+                    </div>
+                </div>
+            `;
+        }).join("");
+        
+        attachCartListeners();
+    });
+});
+
+const countSpan = document.getElementById("cart-count");
+const totalSpan = document.getElementById("cart-total");
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function updateHeaderCart() {
+    let totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+    let totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+    countSpan.textContent = totalQuantity;
+    totalSpan.textContent = totalPrice.toLocaleString("vi-VN") + "₫";
+}
+
+function attachCartListeners() {
+    document.querySelectorAll(".add-to-cart").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const name = btn.dataset.name;
+            const price = parseInt(btn.dataset.price);
+            const image = btn.dataset.image;
+
+            const index = cart.findIndex(item => item.name === name);
+            if (index >= 0) {
+                cart[index].quantity += 1;
+            } else {
+                cart.push({ name: name, price: price, image: image, quantity: 1 });
+            }
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateHeaderCart();
+            
+            alert(`Đã thêm ${name} vào giỏ hàng!`); 
+        });
+    });
+}
+updateHeaderCart();
+
+</script>
+
+</body>
+</html>

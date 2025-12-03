@@ -1,0 +1,161 @@
+/* RESET CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+.header {
+    width: 100%;
+    background: #222;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.search-container input {
+    padding: 8px;
+    width: 250px;
+}
+
+.search-container button {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.icons a {
+    color: white;
+    font-size: 22px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+/* MENU */
+.menu {
+    background: #444;
+    padding: 10px;
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+.menu a:hover {
+    background: #666;
+    border-radius: 5px;
+}
+
+/* BANNER SLIDER */
+#slider {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: none;
+}
+
+.slide.active {
+    display: block;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* PRODUCTS */
+.products {
+    padding: 20px;
+}
+
+.product-box {
+    width: 250px;
+    padding: 15px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    margin: 15px;
+    display: inline-block;
+    text-align: center;
+}
+
+.product-box img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* FOOTER */
+.footer {
+    background: #222;
+    color: white;
+    padding: 20px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+/* CONTAINER CHO CÁC NÚT ĐỂ HIỂN THỊ CẠNH NHAU */
+.product-actions {
+    display: flex;
+    justify-content: space-between; /* Đặt nút cách đều nhau */
+    align-items: center;
+    margin-top: 10px;
+}
+
+.product-box .add-to-cart {
+    /* Đảm bảo nút "Thêm vào giỏ" có chiều rộng phù hợp */
+    padding: 10px 8px; 
+    flex-grow: 1; /* Cho phép nút này giãn ra */
+    margin-right: 5px; /* Khoảng cách với nút bên cạnh */
+}
+
+/* ĐỊNH DẠNG NÚT MUA NGAY/XEM CHI TIẾT (Màu sắc khác biệt) */
+.buy-now-btn {
+    display: inline-block;
+    background: #dc3545; /* Màu đỏ nổi bật */
+    color: white;
+    border: none;
+    padding: 10px 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none; /* Loại bỏ gạch chân cho thẻ a */
+    text-align: center;
+    flex-grow: 1; /* Cho phép nút này giãn ra */
+    transition: background 0.3s;
+}
+
+.buy-now-btn:hover {
+    background: #c82333;
+}

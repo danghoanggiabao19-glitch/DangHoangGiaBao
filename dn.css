@@ -1,0 +1,110 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 350px;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0d6efd;
+}
+
+.form-container input {
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.form-container button {
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #0d6efd;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background: #0954c1;
+}
+
+.form-container p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form-container p a {
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+.message {
+    text-align: center;
+    color: red;
+    margin-top: 5px;
+}
+.social-login button {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* khoảng cách giữa icon và chữ */
+    padding: 10px 15px;
+    margin-top: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.social-login {
+    display: flex;
+    justify-content: space-between; /* 2 nút nằm ngang, cách đều nhau */
+    gap: 10px; /* khoảng cách giữa 2 nút */
+    margin-top: 15px;
+}
+
+.social-login button {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* canh giữa icon và chữ */
+    gap: 8px; /* khoảng cách giữa icon và chữ */
+    padding: 10px;
+    flex: 1; /* 2 nút chia đều chiều ngang */
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+}
+#facebook-login {
+    background-color: #1877F2;
+    color: white;
+    border: none;
+}
+
+#google-login {
+    background-color: #DB4437;
+    color: white;
+    border: none;
+}
+
+        .form-container p {
+            margin-top: 10px;
+            font-size: 14px;
+        }

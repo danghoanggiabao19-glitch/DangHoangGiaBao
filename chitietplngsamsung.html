@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết - Ốp lưng Samsung</title>
+    <style>
+        /* CSS CHUNG */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* HEADER */
+        .header {
+            width: 100%;
+            background: #222;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .search-container input {
+            padding: 8px;
+            width: 250px;
+        }
+
+        .search-container button {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        .icons a {
+            color: white;
+            font-size: 22px;
+            margin-left: 10px;
+            text-decoration: none;
+        }
+
+        /* MENU */
+        .menu {
+            background: #444;
+            padding: 10px;
+        }
+
+        .menu ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+
+        .menu a:hover, .active {
+            background: #666;
+            border-radius: 5px;
+        }
+
+        /* KHUNG CHI TIẾT SẢN PHẨM */
+        .product-detail-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+            display: flex;
+            gap: 40px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-gallery {
+            flex: 1;
+            text-align: center;
+        }
+
+        .main-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+
+        .details {
+            flex: 1;
+        }
+
+        .details h1 {
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 32px;
+            color: #dc3545; /* Màu đỏ */
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .specs ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .specs li {
+            border-bottom: 1px dotted #eee;
+            padding: 8px 0;
+        }
+
+        /* NÚT MUA HÀNG */
+        .buy-action-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #dc3545;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .buy-action-btn:hover {
+            background: #c82333;
+        }
+        
+        .add-to-cart-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #007bff;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .add-to-cart-btn:hover {
+            background: #0056b3;
+        }
+        
+        /* FOOTER */
+        .footer {
+            background: #222;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .footer div {
+            max-width: 300px;
+            padding: 10px;
+        }
+
+        .footer h3 {
+            margin-bottom: 15px;
+        }
+
+        .footer p {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">
+         <img src="logo.jpg" alt="ElectroShop Logo" width="80">
+    </div>
+    <div class="search-container">
+        <input type="text" placeholder="Tìm kiếm sản phẩm...">
+        <button>Tìm</button>
+    </div>
+    <div class="icons">
+        <a href="giỏ hàng.html">🛒</a>
+        <span id="cart-count">0</span> | 
+        <span id="cart-total">0₫</span>
+        <a href="dn.html">👤</a>
+    </div>
+</header>
+
+<nav class="menu">
+    <ul>
+        <li><a href="tl2.html">Trang chủ</a></li>
+        <li><a href="sp2.html">Sản phẩm</a></li>
+        <li><a href="km2.html">Khuyến mãi</a></li>
+        <li><a href="hotro2.html">Hỗ trợ khách hàng</a></li>
+    </ul>
+</nav>
+
+<section class="product-detail-container">
+    <div class="image-gallery">
+        <img src="opsamsung.jpg" alt="Ốp lưng Samsung" class="main-image">
+        <p>Ảnh chụp sản phẩm. 
+
+[Image of Samsung Phone Case]
+</p>
+    </div>
+
+    <div class="details">
+        <h1>Ốp lưng trong suốt chống ố cho Samsung Galaxy S23</h1>
+        <p class="price">100.000₫</p>
+        
+        <h2>Thông số kỹ thuật nổi bật</h2>
+        <div class="specs">
+            <ul>
+                <li>Tương thích: Các dòng Samsung Galaxy S và A</li>
+                <li>Chất liệu: TPU dẻo cao cấp, chống ố vàng</li>
+                <li>Tính năng: Bảo vệ chống va đập, giữ nguyên vẻ đẹp gốc của máy</li>
+                <li>Đặc điểm: Viền đệm khí chống sốc</li>
+            </ul>
+        </div>
+        
+        <h2>Mô tả sản phẩm</h2>
+        <p>Ốp lưng trong suốt cao cấp dành cho Samsung, được thiết kế để chống ố vàng theo thời gian. Chất liệu TPU dẻo giúp dễ dàng tháo lắp và bảo vệ điện thoại khỏi những cú va đập hàng ngày.</p>
+        
+        <button class="buy-action-btn"
+                data-name="Ốp lưng Samsung" 
+                data-price="100000" 
+                data-image="opsamsung.jpg">
+            MUA NGAY (Giao hàng tận nơi)
+        </button>
+         <button class="add-to-cart-btn"
+                data-name="Ốp lưng Samsung" 
+                data-price="100000" 
+                data-image="opsamsung.jpg">
+            Thêm vào giỏ hàng
+        </button>
+    </div>
+</section>
+
+<footer class="footer">
+     <div>
+        <h3>Liên hệ</h3>
+        <div class="logo">
+        <img src="logo.jpg" alt="ElectroShop Logo" width="80">
+    </div>
+        <p>Công ty Cổ phần ElectroShop</p>
+        <p>Uy tín chất lượng</p>
+        <p>Hotline: 0123 456 789</p>
+        <p><strong>Địa chỉ:</strong> 123 Nguyễn Trãi, phường Phú Thủy, TP.Phan Thiết</p>
+             <p><strong>Email:</strong> ĐHGBẢO@electroshop.vn</p>
+    </div>
+
+    <div>
+        <h3>Chính sách - Hướng dẫn</h3>
+        <p>Chính sách bán hàng</p>
+        <p>Chính sách đổi trả, bảo hành</p>
+        <p>Chính sách giao hàng, kiểm hàng</p>
+        <p>Chính sách bảo mật</p>
+        <p>Chính sách trả góp 0%</p>
+        <p>Chính sách hoàn tiền</p>
+        <p>Chính sách ưu đãi</p>
+        <p>Hướng dẫn khách hàng</p>
+        <p>Hướng dẫn mua hàng</p>
+        <p>Hướng dẫn sử dụng</p>
+    </div>
+
+    <div>
+        <h3>Kết nối với chúng tôi</h3>
+        <p>Facebook | TikTok | YouTube</p>
+        <p>Phương thức Thanh toán: Visa | MasterCard | PayPal</p>
+    </div>
+</footer>
+
+<script>
+// Lấy giỏ hàng từ localStorage (dùng chung logic)
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function updateHeaderCart() {
+    const countSpan = document.getElementById("cart-count");
+    const totalSpan = document.getElementById("cart-total");
+    
+    let totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+    let totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+    if (countSpan && totalSpan) {
+        countSpan.textContent = totalQuantity;
+        totalSpan.textContent = totalPrice.toLocaleString("vi-VN") + "₫";
+    }
+}
+
+function handleCartAction(btn, isBuyNow) {
+    const name = btn.dataset.name;
+    const price = parseInt(btn.dataset.price);
+    const image = btn.dataset.image;
+
+    const index = cart.findIndex(item => item.name === name);
+    if (index >= 0) {
+        cart[index].quantity += 1;
+    } else {
+        cart.push({ name: name, price: price, image: image, quantity: 1 });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateHeaderCart();
+
+    if (isBuyNow) {
+        alert(`Đã thêm ${name} vào giỏ hàng! Đang chuyển hướng đến thanh toán.`);
+        window.location.href = "giỏ hàng.html"; 
+    } else {
+        alert(`Đã thêm ${name} vào giỏ hàng!`);
+    }
+}
+
+document.querySelectorAll(".buy-action-btn").forEach(btn => {
+    btn.addEventListener("click", () => handleCartAction(btn, true));
+});
+
+document.querySelectorAll(".add-to-cart-btn").forEach(btn => {
+    btn.addEventListener("click", () => handleCartAction(btn, false));
+});
+
+updateHeaderCart();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+     <meta charset="UTF-8">
+      <title>Giỏ hàng</title>
+      <link rel="stylesheet" href="tl2.css">
+</head>
+
+<body>
+<header class="header" style="display:flex; justify-content:space-between; align-items:center; padding:10px 20px; background:#333; color:white;">
+     <div>
+        <h2>🛒 Giỏ hàng của bạn</h2>
+     </div>
+     <div>
+         Số lượng: <span id="cart-count">0</span> | 
+         Tổng tiền: <span id="cart-total">0₫</span>
+        </div>
+</header>
+<div id="cart-items" style="width:80%; margin:auto; margin-top:20px;"></div>
+<h3 id="total" style="text-align:center; margin-top:20px;"></h3>
+
+    <div style="width:80%; margin: 20px auto; text-align: center;">
+        <a href="sp2.html" 
+           style="padding:10px 15px; background:#5cb85c; color:white; text-decoration:none; border-radius:5px; margin-right:15px;">
+           ← Tiếp tục mua sắm
+        </a>
+        <button style="padding:10px 15px; background:#007bff; color:white; border:none; border-radius:5px; cursor:pointer;">
+           Thanh toán
+        </button>
+    </div>
+    <script>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+     function renderCart() {
+    let container = document.getElementById("cart-items");
+     container.innerHTML = "";
+
+     let totalQuantity = 0;
+     let totalPrice = 0;
+
+    if (cart.length === 0) {
+     container.innerHTML = "<p style='text-align:center;'>Giỏ hàng trống.</p>";
+     document.getElementById("total").innerText = "";
+     document.getElementById("cart-count").textContent = 0;
+     document.getElementById("cart-total").textContent = "0₫";
+     return;
+}
+
+     cart.forEach((item, index) => {
+     totalQuantity += item.quantity;
+     totalPrice += item.price * item.quantity;
+
+     container.innerHTML += `
+    <div style="
+         background:white;
+         padding:15px;
+         margin:10px 0;
+         border-radius:10px;
+         display:flex;
+         justify-content:space-between;
+         align-items:center;">
+         <div style="display: flex; align-items: center; gap: 15px;">
+         <img src="${item.image}" alt="${item.name}" style="width: 120px; height: 120px; object-fit: cover; border-radius: 5px;">
+    <div>
+     <h3>${item.name}</h3>
+     <p>Giá: ${item.price.toLocaleString('vi-VN')}đ</p>
+     <p>Số lượng: ${item.quantity}</p>
+     </div>
+     </div>
+ <button onclick="removeItem(${index})" 
+ style="padding:8px 12px; background:red; color:white; border:none; border-radius:5px; cursor:pointer;">
+ Xóa
+ </button>
+ </div>
+ `;
+ });
+
+ document.getElementById("total").innerText = "Tổng tiền: " + totalPrice.toLocaleString('vi-VN') + "đ";
+ document.getElementById("cart-count").textContent = totalQuantity;
+ document.getElementById("cart-total").textContent = totalPrice.toLocaleString('vi-VN') + "₫";
+ }
+
+function removeItem(i) {
+cart.splice(i, 1);
+localStorage.setItem("cart", JSON.stringify(cart));
+ renderCart();
+}
+
+ renderCart();
+</script>
+
+</body>
+</html>
